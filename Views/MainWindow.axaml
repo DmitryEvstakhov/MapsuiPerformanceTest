@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaMapsUiTest.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalonia="clr-namespace:Mapsui.UI.Avalonia;assembly=Mapsui.UI.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="600"
+        x:Class="AvaloniaMapsUiTest.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaMapsUiTest"
+        DataContextChanged="StyledElement_OnDataContextChanged">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid ColumnDefinitions="*,Auto" RowDefinitions="*">
+        
+        <Border BorderBrush="Black" BorderThickness="1">
+            <avalonia:MapControl VerticalAlignment="Stretch" HorizontalContentAlignment="Left"
+                                 HorizontalAlignment="Stretch"
+                                 x:Name="MapControl" />
+        </Border>
+        
+        
+        <DockPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical" Background="Gray">
+                <Label Content="TextBox1"/>
+                <TextBox Width="100" ToolTip.Tip="some text"/>
+                <Label Content="ComboBox1"/>
+                <ComboBox Width="100" ItemsSource="{Binding Collection1}" ToolTip.Tip="some text"/>
+            </StackPanel>
+        </DockPanel>
+        
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" Margin="10">
+            <NumericUpDown Minimum="100" Maximum="10000" Increment="100" Margin="5" Width="150"
+                           Value="{Binding ObjectsCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></NumericUpDown>
+            <Label Content="TextBox2"/>
+            <TextBox Width="150" ToolTip.Tip="some text" Margin="5"></TextBox>
+            <Label Content="ComboBox2"/>
+            <ComboBox Width="150" ItemsSource="{Binding Collection2}" 
+                      ToolTip.Tip="some text" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
