@@ -17,27 +17,27 @@ namespace AvaloniaMapsUiTest
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
-                .With(new X11PlatformOptions
-                {
-                    RenderingMode = new[] { X11RenderingMode.Egl }
-                }) 
+                //.With(new X11PlatformOptions
+                //{
+                //    RenderingMode = new[] { X11RenderingMode.Egl }
+                //}) 
 
-                .With(new Win32PlatformOptions
-                {
-                    RenderingMode = new[] { Win32RenderingMode.AngleEgl },
-                    CompositionMode = new[]
-                    {
-                        Win32CompositionMode.WinUIComposition,
-                        Win32CompositionMode.DirectComposition,
-                        Win32CompositionMode.LowLatencyDxgiSwapChain
-                    }
-                    ,
-                }) 
+                //.With(new Win32PlatformOptions
+                //{
+                //    RenderingMode = new[] { Win32RenderingMode.AngleEgl },
+                //    CompositionMode = new[]
+                //    {
+                //        Win32CompositionMode.WinUIComposition,
+                //        Win32CompositionMode.DirectComposition,
+                //        Win32CompositionMode.LowLatencyDxgiSwapChain
+                //    }
+                //    ,
+                //})
 
-                .With(new SkiaOptions
-                {
-                    MaxGpuResourceSizeBytes = 1024 * 1024 * 1024
-                })
+                //.With(new SkiaOptions
+                //{
+                //    MaxGpuResourceSizeBytes = 1024l * 1024 * 1024 * 4
+                //})
                 .WithInterFont()
                 .LogToTrace()
                 .UseReactiveUI();
